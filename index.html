@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trend Bazaar India 24 | Trending Products & Best Deals</title>
+
+    <meta
+        name="description"
+        content="Trend Bazaar India 24 - Trending Products, Best Deals, New Products Every Day and Pan India Delivery."
+    >
+
+    <link rel="icon" href="images/trend-bazaar-profile.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     LOADER
+     ========================================================= -->
+
+<div id="loader" class="loader">
+
+    <div class="loader-inner">
+
+        <!-- Trend Bazaar Logo -->
+        <img
+            src="images/trend-bazaar-profile.jpg"
+            alt="Trend Bazaar India 24 Logo"
+            class="loader-logo"
+        >
+
+        <div class="loader-ring"></div>
+
+        <p>LOADING TREND BAZAAR</p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOP ANNOUNCEMENT
+     ========================================================= -->
+
+<div class="announcement">
+    🚚 Pan India Delivery
+    <span>•</span>
+    🔥 New Products Every Day
+    <span>•</span>
+    🛍️ Best Deals
+</div>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+    <a href="#home" class="brand">
+
+        <img
+            src="images/trend-bazaar-profile.jpg"
+            alt="Trend Bazaar"
+        >
+
+        <span>
+            <b>TREND <i>BAZAAR</i></b>
+            <small>INDIA 24</small>
+        </span>
+
+    </a>
+
+
+    <nav class="desktop-nav">
+
+        <a href="#home">Home</a>
+
+        <a href="#catalog">Shop</a>
+
+        <a href="#new">New Arrivals</a>
+
+        <a href="#how">How It Works</a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            id="searchBtn"
+            type="button"
+            aria-label="Search"
+        >
+            ⌕
+        </button>
+
+        <button
+            id="cartBtn"
+            type="button"
+            aria-label="Shopping Cart"
+        >
+            🛒
+            <span id="cartCount">0</span>
+        </button>
+
+        <button
+            id="menuBtn"
+            class="menu-btn"
+            type="button"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE NAVIGATION
+     ========================================================= -->
+
+<div id="mobileNav" class="mobile-nav">
+
+    <a href="#home">Home</a>
+
+    <a href="#catalog">Shop</a>
+
+    <a href="#new">New Arrivals</a>
+
+    <a href="#how">How It Works</a>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main id="home">
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-copy">
+
+        <span class="eyebrow">
+            TRENDING PRODUCTS • BEST DEALS
+        </span>
+
+        <h1>
+            What's
+            <em>Trending</em>
+            <br>
+            Is Here.
+        </h1>
+
+        <p>
+            Discover useful gadgets, viral finds and everyday
+            products with fresh deals added regularly.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#catalog"
+                class="gold-btn"
+            >
+                Shop Today's Catalog →
+            </a>
+
+            <button
+                id="heroSearch"
+                class="outline-btn"
+                type="button"
+            >
+                Find a Product
+            </button>
+
+        </div>
+
+
+        <div class="trust-row">
+
+            <span>✓ Pan India Delivery</span>
+
+            <span>✓ Best Prices</span>
+
+            <span>✓ Easy Ordering</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-art">
+
+        <img
+            src="images/trend-bazaar-profile.jpg"
+            alt="Trend Bazaar India 24"
+        >
+
+        <div class="floating-card">
+            🔥 NEW
+            <br>
+            <b>DAILY DEALS</b>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BENEFITS
+     ========================================================= -->
+
+<section class="benefits">
+
+    <div>
+        🚚
+        <b>Pan India Delivery</b>
+        <small>Fast & safe delivery</small>
+    </div>
+
+    <div>
+        🏆
+        <b>Best Quality</b>
+        <small>Selected products</small>
+    </div>
+
+    <div>
+        💰
+        <b>Best Prices</b>
+        <small>Great everyday deals</small>
+    </div>
+
+    <div>
+        🔒
+        <b>Secure Ordering</b>
+        <small>Your details stay protected</small>
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NEW ARRIVALS
+     ========================================================= -->
+
+<section
+    class="section"
+    id="new"
+>
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                FRESH TODAY
+            </span>
+
+            <h2>
+                New Arrivals
+            </h2>
+
+        </div>
+
+        <a href="#catalog">
+            View all →
+        </a>
+
+    </div>
+
+
+    <div
+        id="newGrid"
+        class="product-grid"
+    ></div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT CATALOG
+     ========================================================= -->
+
+<section
+    class="section catalog-section"
+    id="catalog"
+>
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                SHOP THE CATALOG
+            </span>
+
+            <h2>
+                Trending Products
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- Search + Categories -->
+
+    <div class="toolbar">
+
+        <div
+            id="categories"
+            class="chips"
+        ></div>
+
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <!-- Products -->
+
+    <div
+        id="productGrid"
+        class="product-grid"
+    ></div>
+
+
+    <p
+        id="empty"
+        class="empty hidden"
+    >
+        No products found.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section
+    class="how section"
+    id="how"
+>
+
+    <span class="eyebrow">
+        SIMPLE ORDERING
+    </span>
+
+    <h2>
+        Order Directly From The Catalog
+    </h2>
+
+
+    <div class="steps">
+
+        <article>
+
+            <b>01</b>
+
+            <h3>
+                Browse
+            </h3>
+
+            <p>
+                Find a product you like.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <b>02</b>
+
+            <h3>
+                Add to Cart
+            </h3>
+
+            <p>
+                Select quantity and add it to your cart.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <b>03</b>
+
+            <h3>
+                Place Order
+            </h3>
+
+            <p>
+                Enter your delivery details.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <b>04</b>
+
+            <h3>
+                Get Delivery
+            </h3>
+
+            <p>
+                We confirm your order and deliver it.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div>
+
+        <span class="eyebrow">
+            TREND BAZAAR INDIA 24
+        </span>
+
+        <h2>
+            Shop More. Save More.
+        </h2>
+
+        <p>
+            Check back regularly for new products and deals.
+        </p>
+
+    </div>
+
+
+    <a
+        href="#catalog"
+        class="gold-btn"
+    >
+        Explore Catalog
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="brand">
+
+        <img
+            src="images/trend-bazaar-profile.jpg"
+            alt="Trend Bazaar"
+        >
+
+        <span>
+            <b>TREND <i>BAZAAR</i></b>
+            <small>INDIA 24</small>
+        </span>
+
+    </div>
+
+
+    <p>
+        © 2026 Trend Bazaar India 24
+    </p>
+
+
+    <a href="admin.html">
+        Owner Dashboard
+    </a>
+
+</footer>
+
+
+<!-- =========================================================
+     PRODUCT DETAILS MODAL
+     ========================================================= -->
+
+<div
+    id="productModal"
+    class="modal"
+>
+
+    <div class="modal-box product-modal">
+
+        <button
+            class="close"
+            data-close="productModal"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="modalImg"
+            src=""
+            alt="Product"
+        >
+
+
+        <div>
+
+            <span
+                id="modalCat"
+                class="pill"
+            ></span>
+
+
+            <h2 id="modalName"></h2>
+
+
+            <div
+                id="modalPrice"
+                class="modal-price"
+            ></div>
+
+
+            <p id="modalDesc"></p>
+
+
+            <label>
+                Quantity
+
+                <input
+                    id="modalQty"
+                    type="number"
+                    min="1"
+                    value="1"
+                >
+
+            </label>
+
+
+            <button
+                id="addBtn"
+                class="gold-btn full"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+
+            <button
+                id="buyBtn"
+                class="dark-btn full"
+                type="button"
+            >
+                Buy Now
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CART MODAL
+     ========================================================= -->
+
+<div
+    id="cartModal"
+    class="modal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            data-close="cartModal"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <span class="eyebrow">
+            YOUR BAG
+        </span>
+
+
+        <h2>
+            Shopping Cart
+        </h2>
+
+
+        <div id="cartItems"></div>
+
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <b id="cartTotal">
+                ₹0
+            </b>
+
+        </div>
+
+
+        <button
+            id="checkoutBtn"
+            class="gold-btn full"
+            type="button"
+        >
+            Proceed to Order
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CHECKOUT MODAL
+     ========================================================= -->
+
+<div
+    id="checkoutModal"
+    class="modal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            data-close="checkoutModal"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <span class="eyebrow">
+            CHECKOUT
+        </span>
+
+
+        <h2>
+            Delivery Details
+        </h2>
+
+
+        <form id="orderForm">
+
+            <input
+                name="name"
+                type="text"
+                required
+                placeholder="Full name"
+                autocomplete="name"
+            >
+
+
+            <input
+                name="phone"
+                type="tel"
+                required
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+                autocomplete="tel"
+            >
+
+
+            <textarea
+                name="address"
+                required
+                placeholder="Full delivery address"
+                autocomplete="street-address"
+            ></textarea>
+
+
+            <div class="two">
+
+                <input
+                    name="city"
+                    type="text"
+                    required
+                    placeholder="City"
+                    autocomplete="address-level2"
+                >
+
+
+                <input
+                    name="pincode"
+                    type="text"
+                    required
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    placeholder="PIN code"
+                    autocomplete="postal-code"
+                >
+
+            </div>
+
+
+            <select
+                name="payment"
+                required
+            >
+
+                <option value="">
+                    Payment method
+                </option>
+
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
+
+                <option value="UPI / Online Payment">
+                    UPI / Online Payment
+                </option>
+
+            </select>
+
+
+            <button
+                class="gold-btn full"
+                type="submit"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+
+        <div
+            id="orderSuccess"
+            class="success hidden"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

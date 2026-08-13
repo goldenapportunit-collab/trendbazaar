@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trend Bazaar | Admin Panel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           ADMIN PANEL
+           ===================================================== */
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .admin-header {
+            min-height: 72px;
+
+            padding: 12px 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #080808;
+
+            color: white;
+        }
+
+        .admin-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .admin-brand img {
+            width: 45px;
+            height: 45px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 1px solid #e7ad35;
+        }
+
+        .admin-brand b {
+            display: block;
+
+            font-size: 14px;
+        }
+
+        .admin-brand small {
+            color: #aaa;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+        }
+
+        .admin-header a {
+            padding: 10px 15px;
+
+            border: 1px solid #555;
+
+            border-radius: 8px;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 40px 5%;
+        }
+
+        .admin-title {
+            margin-bottom: 25px;
+        }
+
+        .admin-title h1 {
+            margin-top: 7px;
+
+            font-size: 35px;
+        }
+
+        .admin-grid {
+            display: grid;
+
+            grid-template-columns:
+                350px 1fr;
+
+            gap: 25px;
+        }
+
+        .admin-card {
+            padding: 25px;
+
+            background: white;
+
+            border: 1px solid #e5e5e5;
+
+            border-radius: 15px;
+        }
+
+        .admin-card h2 {
+            margin-bottom: 20px;
+
+            font-size: 20px;
+        }
+
+        .admin-form {
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .admin-form label {
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .admin-form input,
+        .admin-form textarea,
+        .admin-form select {
+            width: 100%;
+
+            margin-top: 6px;
+
+            padding: 11px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            outline: none;
+        }
+
+        .admin-form textarea {
+            min-height: 90px;
+
+            resize: vertical;
+        }
+
+        .admin-form input:focus,
+        .admin-form textarea:focus,
+        .admin-form select:focus {
+            border-color: #e7ad35;
+        }
+
+        .image-preview {
+            width: 100%;
+
+            aspect-ratio: 1;
+
+            margin-top: 10px;
+
+            display: none;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            background: #111;
+        }
+
+        .checkbox-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 5px 0;
+        }
+
+        .checkbox-row input {
+            width: auto;
+        }
+
+        .admin-products {
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .admin-product {
+            display: grid;
+
+            grid-template-columns:
+                75px 1fr auto;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 12px;
+
+            border: 1px solid #eee;
+
+            border-radius: 10px;
+        }
+
+        .admin-product img {
+            width: 75px;
+            height: 75px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+        }
+
+        .admin-product-info h3 {
+            margin-bottom: 5px;
+
+            font-size: 14px;
+        }
+
+        .admin-product-info p {
+            color: #777;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        .admin-actions {
+            display: flex;
+
+            gap: 6px;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-end;
+        }
+
+        .admin-actions button {
+            padding: 8px 10px;
+
+            border: 0;
+
+            border-radius: 7px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background: #111;
+
+            color: white;
+        }
+
+        .delete-btn {
+            background: #ffe7e7;
+
+            color: #b00000;
+        }
+
+        .new-btn {
+            background: #fff0cc;
+
+            color: #8a5b00;
+        }
+
+        .orders-section {
+            margin-top: 25px;
+        }
+
+        .order-card {
+            padding: 18px;
+
+            margin-bottom: 12px;
+
+            background: white;
+
+            border: 1px solid #e5e5e5;
+
+            border-radius: 12px;
+        }
+
+        .order-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        .order-id {
+            color: #a66d09;
+
+            font-weight: 900;
+        }
+
+        .order-status {
+            padding: 6px 9px;
+
+            border-radius: 20px;
+
+            background: #eee;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+        .order-card p {
+            margin-top: 8px;
+
+            color: #555;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .order-items {
+            margin-top: 12px;
+
+            padding-top: 12px;
+
+            border-top: 1px solid #eee;
+        }
+
+        .order-item {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 5px 0;
+
+            font-size: 11px;
+        }
+
+        .order-footer {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+            padding-top: 12px;
+
+            border-top: 1px solid #eee;
+        }
+
+        .order-total {
+            font-size: 17px;
+
+            font-weight: 900;
+        }
+
+        .order-footer select {
+            padding: 8px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 7px;
+        }
+
+        .empty-admin {
+            padding: 30px;
+
+            color: #888;
+
+            text-align: center;
+        }
+
+        .admin-message {
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding: 12px;
+
+            background: #eaf8ed;
+
+            border: 1px solid #b8dfc0;
+
+            border-radius: 8px;
+
+            color: #236b2d;
+
+            font-size: 12px;
+        }
+
+        .admin-message.show {
+            display: block;
+        }
+
+        .cancel-edit {
+            display: none;
+
+            width: 100%;
+
+            padding: 11px;
+
+            margin-top: 5px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            border-radius: 8px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .admin-header {
+                padding: 12px 4%;
+            }
+
+            .admin-container {
+                padding: 25px 4%;
+            }
+
+            .admin-product {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .admin-product img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .admin-actions {
+                grid-column: 1 / -1;
+
+                justify-content: flex-start;
+            }
+
+            .order-top,
+            .order-footer {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="admin-header">
+
+    <div class="admin-brand">
+
+        <img
+            src="images/trend-bazaar-profile.jpg"
+            alt="Trend Bazaar"
+        >
+
+        <div>
+            <b>TREND BAZAAR</b>
+            <small>OWNER DASHBOARD</small>
+        </div>
+
+    </div>
+
+
+    <a href="index.html">
+        ← View Website
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="admin-container">
+
+
+    <div class="admin-title">
+
+        <span class="eyebrow">
+            TREND BAZAAR INDIA 24
+        </span>
+
+        <h1>
+            Owner Dashboard
+        </h1>
+
+    </div>
+
+
+    <div
+        id="adminMessage"
+        class="admin-message"
+    ></div>
+
+
+    <!-- =================================================
+         PRODUCT MANAGEMENT
+         ================================================= -->
+
+    <div class="admin-grid">
+
+
+        <!-- ADD PRODUCT -->
+
+        <section class="admin-card">
+
+            <h2 id="formTitle">
+                Add New Product
+            </h2>
+
+
+            <form
+                id="productForm"
+                class="admin-form"
+            >
+
+                <input
+                    type="hidden"
+                    id="editId"
+                >
+
+
+                <label>
+
+                    Product Name
+
+                    <input
+                        id="productName"
+                        type="text"
+                        required
+                        placeholder="Example: Smart LED Lamp"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Category
+
+                    <input
+                        id="productCategory"
+                        type="text"
+                        required
+                        placeholder="Example: Gadgets"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Selling Price
+
+                    <input
+                        id="productPrice"
+                        type="number"
+                        min="0"
+                        required
+                        placeholder="499"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Old Price
+
+                    <input
+                        id="productOldPrice"
+                        type="number"
+                        min="0"
+                        placeholder="799"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Product Image
+
+                    <input
+                        id="productImage"
+                        type="file"
+                        accept="image/*"
+                    >
+
+                </label>
+
+
+                <img
+                    id="imagePreview"
+                    class="image-preview"
+                    alt="Image preview"
+                >
+
+
+                <label>
+
+                    Description
+
+                    <textarea
+                        id="productDescription"
+                        placeholder="Write product details..."
+                    ></textarea>
+
+                </label>
+
+
+                <label class="checkbox-row">
+
+                    <input
+                        id="productNew"
+                        type="checkbox"
+                    >
+
+                    Mark as New Arrival
+
+                </label>
+
+
+                <button
+                    class="gold-btn"
+                    type="submit"
+                >
+                    <span id="saveButtonText">
+                        Add Product
+                    </span>
+                </button>
+
+
+                <button
+                    id="cancelEdit"
+                    class="cancel-edit"
+                    type="button"
+                >
+                    Cancel Editing
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- PRODUCT LIST -->
+
+        <section class="admin-card">
+
+            <h2>
+                Product Catalog
+            </h2>
+
+            <div
+                id="adminProducts"
+                class="admin-products"
+            ></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =================================================
+         ORDERS
+         ================================================= -->
+
+    <section class="admin-card orders-section">
+
+        <h2>
+            Customer Orders
+        </h2>
+
+        <div id="ordersList"></div>
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================================================
+   STORAGE
+   ========================================================= */
+
+const PRODUCTS_KEY =
+    "trendBazaarProducts";
+
+const ORDERS_KEY =
+    "trendBazaarOrders";
+
+
+/* =========================================================
+   DEFAULT PRODUCTS
+   ========================================================= */
+
+const defaultProducts = [
+    {
+        id: 1,
+        name: "Portable Mini Fan",
+        category: "Gadgets",
+        price: 499,
+        oldPrice: 799,
+        image: "images/portable-mini-fan.jpg",
+        description: "Compact rechargeable portable fan.",
+        isNew: true
+    },
+
+    {
+        id: 2,
+        name: "Mini Portable Humidifier",
+        category: "Home",
+        price: 699,
+        oldPrice: 999,
+        image: "images/mini-humidifier.jpg",
+        description: "Compact USB humidifier.",
+        isNew: true
+    },
+
+    {
+        id: 3,
+        name: "Magic Bar Body Scrub",
+        category: "Beauty",
+        price: 299,
+        oldPrice: 499,
+        image: "images/magic-bar.jpg",
+        description: "Easy-to-use beauty product.",
+        isNew: true
+    }
+];
+
+
+/* =========================================================
+   DOM
+   ========================================================= */
+
+const productForm =
+    document.getElementById("productForm");
+
+const editId =
+    document.getElementById("editId");
+
+const productName =
+    document.getElementById("productName");
+
+const productCategory =
+    document.getElementById("productCategory");
+
+const productPrice =
+    document.getElementById("productPrice");
+
+const productOldPrice =
+    document.getElementById("productOldPrice");
+
+const productImage =
+    document.getElementById("productImage");
+
+const productDescription =
+    document.getElementById("productDescription");
+
+const productNew =
+    document.getElementById("productNew");
+
+const imagePreview =
+    document.getElementById("imagePreview");
+
+const adminProducts =
+    document.getElementById("adminProducts");
+
+const ordersList =
+    document.getElementById("ordersList");
+
+const adminMessage =
+    document.getElementById("adminMessage");
+
+const formTitle =
+    document.getElementById("formTitle");
+
+const saveButtonText =
+    document.getElementById("saveButtonText");
+
+const cancelEdit =
+    document.getElementById("cancelEdit");
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let products = [];
+
+let editingProduct = null;
+
+let selectedImageData = "";
+
+
+/* =========================================================
+   LOAD PRODUCTS
+   ========================================================= */
+
+function loadProducts() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(PRODUCTS_KEY);
+
+        if (saved) {
+
+            const parsed =
+                JSON.parse(saved);
+
+            if (Array.isArray(parsed)) {
+
+                products = parsed;
+
+            } else {
+
+                products =
+                    [...defaultProducts];
+            }
+
+        } else {
+
+            products =
+                [...defaultProducts];
+
+            saveProducts();
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        products =
+            [...defaultProducts];
+    }
+}
+
+
+/* =========================================================
+   SAVE PRODUCTS
+   ========================================================= */
+
+function saveProducts() {
+
+    localStorage.setItem(
+        PRODUCTS_KEY,
+        JSON.stringify(products)
+    );
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+function price(value) {
+
+    return "₹" +
+        Number(value || 0)
+            .toLocaleString("en-IN");
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+function showMessage(message) {
+
+    adminMessage.textContent =
+        message;
+
+    adminMessage.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            adminMessage.classList.remove(
+                "show"
+            );
+
+        },
+        3000
+    );
+}
+
+
+/* =========================================================
+   IMAGE FILE → DATA URL
+   ========================================================= */
+
+productImage.addEventListener(
+    "change",
+    event => {
+
+        const file =
+            event.target.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        if (!file.type.startsWith("image/")) {
+
+            alert(
+                "Please select an image file."
+            );
+
+            productImage.value = "";
+
+            return;
+        }
+
+
+        /*
+         * Browser storage has limited space.
+         * Resize large images before saving.
+         */
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = event => {
+
+            const img =
+                new Image();
+
+
+            img.onload = () => {
+
+                const maxSize = 1000;
+
+                let width =
+                    img.width;
+
+                let height =
+                    img.height;
+
+
+                if (
+                    width > maxSize ||
+                    height > maxSize
+                ) {
+
+                    if (width > height) {
+
+                        height =
+                            Math.round(
+                                height *
+                                maxSize /
+                                width
+                            );
+
+                        width =
+                            maxSize;
+
+                    } else {
+
+                        width =
+                            Math.round(
+                                width *
+                                maxSize /
+                                height
+                            );
+
+                        height =
+                            maxSize;
+                    }
+                }
+
+
+                const canvas =
+                    document.createElement(
+                        "canvas"
+                    );
+
+
+                canvas.width =
+                    width;
+
+                canvas.height =
+                    height;
+
+
+                const ctx =
+                    canvas.getContext("2d");
+
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                selectedImageData =
+                    canvas.toDataURL(
+                        "image/jpeg",
+                        0.82
+                    );
+
+
+                imagePreview.src =
+                    selectedImageData;
+
+                imagePreview.style.display =
+                    "block";
+
+            };
+
+
+            img.src =
+                event.target.result;
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
+function renderProducts() {
+
+    if (!products.length) {
+
+        adminProducts.innerHTML = `
+            <div class="empty-admin">
+                No products added yet.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    adminProducts.innerHTML =
+        products.map(product => {
+
+            return `
+                <article
+                    class="admin-product"
+                >
+
+                    <img
+                        src="${escapeHTML(product.image)}"
+                        alt="${escapeHTML(product.name)}"
+                        onerror="this.src='images/trend-bazaar-profile.jpg'"
+                    >
+
+
+                    <div class="admin-product-info">
+
+                        <h3>
+                            ${escapeHTML(product.name)}
+                        </h3>
+
+                        <p>
+                            ${escapeHTML(product.category)}
+                            •
+                            ${price(product.price)}
+                            ${
+                                product.oldPrice
+                                    ? ` • MRP ${price(product.oldPrice)}`
+                                    : ""
+                            }
+                        </p>
+
+                        <p>
+                            ${
+                                product.isNew
+                                    ? "🔥 New Arrival"
+                                    : "Regular Product"
+                            }
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-actions">
+
+                        <button
+                            class="edit-btn"
+                            data-edit="${product.id}"
+                            type="button"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="new-btn"
+                            data-new="${product.id}"
+                            type="button"
+                        >
+                            ${
+                                product.isNew
+                                    ? "Remove New"
+                                    : "Mark New"
+                            }
+                        </button>
+
+                        <button
+                            class="delete-btn"
+                            data-delete="${product.id}"
+                            type="button"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </article>
+            `;
+
+        }).join("");
+
+
+    attachProductActions();
+}
+
+
+/* =========================================================
+   PRODUCT ACTIONS
+   ========================================================= */
+
+function attachProductActions() {
+
+    document
+        .querySelectorAll("[data-edit]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    editProduct(
+                        Number(
+                            button.dataset.edit
+                        )
+                    );
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll("[data-new]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    toggleNew(
+                        Number(
+                            button.dataset.new
+                        )
+                    );
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll("[data-delete]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    deleteProduct(
+                        Number(
+                            button.dataset.delete
+                        )
+                    );
+
+                }
+            );
+
+        });
+}
+
+
+/* =========================================================
+   EDIT PRODUCT
+   ========================================================= */
+
+function editProduct(id) {
+
+    const product =
+        products.find(
+            item =>
+                Number(item.id) === Number(id)
+        );
+
+
+    if (!product) {
+        return;
+    }
+
+
+    editingProduct =
+        product;
+
+
+    editId.value =
+        product.id;
+
+
+    productName.value =
+        product.name || "";
+
+
+    productCategory.value =
+        product.category || "";
+
+
+    productPrice.value =
+        product.price || "";
+
+
+    productOldPrice.value =
+        product.oldPrice || "";
+
+
+    productDescription.value =
+        product.description || "";
+
+
+    productNew.checked =
+        Boolean(product.isNew);
+
+
+    selectedImageData =
+        product.image || "";
+
+
+    if (selectedImageData) {
+
+        imagePreview.src =
+            selectedImageData;
+
+        imagePreview.style.display =
+            "block";
+
+    }
+
+
+    formTitle.textContent =
+        "Edit Product";
+
+
+    saveButtonText.textContent =
+        "Update Product";
+
+
+    cancelEdit.style.display =
+        "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   TOGGLE NEW
+   ========================================================= */
+
+function toggleNew(id) {
+
+    const product =
+        products.find(
+            item =>
+                Number(item.id) === Number(id)
+        );
+
+
+    if (!product) {
+        return;
+    }
+
+
+    product.isNew =
+        !product.isNew;
+
+
+    saveProducts();
+
+    renderProducts();
+
+    showMessage(
+        product.isNew
+            ? "Product marked as New Arrival."
+            : "Product removed from New Arrivals."
+    );
+}
+
+
+/* =========================================================
+   DELETE PRODUCT
+   ========================================================= */
+
+function deleteProduct(id) {
+
+    const product =
+        products.find(
+            item =>
+                Number(item.id) === Number(id)
+        );
+
+
+    if (!product) {
+        return;
+    }
+
+
+    const confirmed =
+        confirm(
+            `Delete "${product.name}"?`
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    products =
+        products.filter(
+            item =>
+                Number(item.id) !== Number(id)
+        );
+
+
+    saveProducts();
+
+    renderProducts();
+
+    showMessage(
+        "Product deleted successfully."
+    );
+}
+
+
+/* =========================================================
+   RESET FORM
+   ========================================================= */
+
+function resetForm() {
+
+    productForm.reset();
+
+    editId.value = "";
+
+    editingProduct = null;
+
+    selectedImageData = "";
+
+    imagePreview.src = "";
+
+    imagePreview.style.display =
+        "none";
+
+    formTitle.textContent =
+        "Add New Product";
+
+    saveButtonText.textContent =
+        "Add Product";
+
+    cancelEdit.style.display =
+        "none";
+}
+
+
+/* =========================================================
+   CANCEL EDIT
+   ========================================================= */
+
+cancelEdit.addEventListener(
+    "click",
+    resetForm
+);
+
+
+/* =========================================================
+   PRODUCT FORM SUBMIT
+   ========================================================= */
+
+productForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+
+        const name =
+            productName.value.trim();
+
+        const category =
+            productCategory.value.trim();
+
+        const sellingPrice =
+            Number(productPrice.value);
+
+        const oldPrice =
+            productOldPrice.value
+                ? Number(productOldPrice.value)
+                : 0;
+
+        const description =
+            productDescription.value.trim();
+
+        const isNew =
+            productNew.checked;
+
+
+        if (!name) {
+
+            alert(
+                "Please enter product name."
+            );
+
+            return;
+        }
+
+
+        if (!category) {
+
+            alert(
+                "Please enter category."
+            );
+
+            return;
+        }
+
+
+        if (
+            !Number.isFinite(
+                sellingPrice
+            ) ||
+            sellingPrice < 0
+        ) {
+
+            alert(
+                "Please enter a valid price."
+            );
+
+            return;
+        }
+
+
+        /*
+         * When editing:
+         * if no new image is selected,
+         * keep the existing image.
+         */
+
+        const image =
+            selectedImageData ||
+            (
+                editingProduct
+                    ? editingProduct.image
+                    : "images/trend-bazaar-profile.jpg"
+            );
+
+
+        if (editingProduct) {
+
+            editingProduct.name =
+                name;
+
+            editingProduct.category =
+                category;
+
+            editingProduct.price =
+                sellingPrice;
+
+            editingProduct.oldPrice =
+                oldPrice;
+
+            editingProduct.image =
+                image;
+
+            editingProduct.description =
+                description;
+
+            editingProduct.isNew =
+                isNew;
+
+
+            showMessage(
+                "Product updated successfully."
+            );
+
+        } else {
+
+            const newProduct = {
+
+                id:
+                    Date.now(),
+
+                name,
+
+                category,
+
+                price:
+                    sellingPrice,
+
+                oldPrice,
+
+                image,
+
+                description,
+
+                isNew
+
+            };
+
+
+            products.unshift(
+                newProduct
+            );
+
+
+            showMessage(
+                "New product added successfully."
+            );
+        }
+
+
+        saveProducts();
+
+        renderProducts();
+
+        resetForm();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD ORDERS
+   ========================================================= */
+
+function loadOrders() {
+
+    let orders = [];
+
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                ORDERS_KEY
+            );
+
+
+        if (saved) {
+
+            const parsed =
+                JSON.parse(saved);
+
+
+            if (Array.isArray(parsed)) {
+
+                orders = parsed;
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+    }
+
+
+    return orders;
+}
+
+
+/* =========================================================
+   SAVE ORDERS
+   ========================================================= */
+
+function saveOrders(orders) {
+
+    localStorage.setItem(
+        ORDERS_KEY,
+        JSON.stringify(orders)
+    );
+}
+
+
+/* =========================================================
+   RENDER ORDERS
+   ========================================================= */
+
+function renderOrders() {
+
+    const orders =
+        loadOrders();
+
+
+    if (!orders.length) {
+
+        ordersList.innerHTML = `
+            <div class="empty-admin">
+                No customer orders yet.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    ordersList.innerHTML =
+        [...orders]
+            .reverse()
+            .map(order => {
+
+                const customer =
+                    order.customer || {};
+
+
+                const items =
+                    Array.isArray(order.items)
+                        ? order.items
+                        : [];
+
+
+                return `
+                    <article class="order-card">
+
+                        <div class="order-top">
+
+                            <div>
+
+                                <div class="order-id">
+                                    ${escapeHTML(order.id)}
+                                </div>
+
+                                <strong>
+                                    ${escapeHTML(customer.name || "Customer")}
+                                </strong>
+
+                            </div>
+
+
+                            <span class="order-status">
+                                ${escapeHTML(order.status || "New")}
+                            </span>
+
+                        </div>
+
+
+                        <p>
+
+                            📞
+                            ${escapeHTML(customer.phone || "-")}
+
+                            <br>
+
+                            📍
+                            ${escapeHTML(customer.address || "-")},
+                            ${escapeHTML(customer.city || "")}
+                            -
+                            ${escapeHTML(customer.pincode || "")}
+
+                            <br>
+
+                            💳
+                            ${escapeHTML(order.payment || "-")}
+
+                        </p>
+
+
+                        <div class="order-items">
+
+                            ${
+                                items.length
+                                    ? items.map(item => `
+                                        <div class="order-item">
+
+                                            <span>
+                                                ${escapeHTML(item.name)}
+                                                × ${item.quantity}
+                                            </span>
+
+                                            <b>
+                                                ${price(
+                                                    Number(item.price || 0) *
+                                                    Number(item.quantity || 0)
+                                                )}
+                                            </b>
+
+                                        </div>
+                                    `).join("")
+                                    : `
+                                        <div>
+                                            No item details
+                                        </div>
+                                    `
+                            }
+
+                        </div>
+
+
+                        <div class="order-footer">
+
+                            <div class="order-total">
+                                Total:
+                                ${price(order.total)}
+                            </div>
+
+
+                            <select
+                                class="order-status-select"
+                                data-order="${escapeHTML(order.id)}"
+                            >
+
+                                <option
+                                    value="New"
+                                    ${order.status === "New" ? "selected" : ""}
+                                >
+                                    New
+                                </option>
+
+                                <option
+                                    value="Confirmed"
+                                    ${order.status === "Confirmed" ? "selected" : ""}
+                                >
+                                    Confirmed
+                                </option>
+
+                                <option
+                                    value="Packed"
+                                    ${order.status === "Packed" ? "selected" : ""}
+                                >
+                                    Packed
+                                </option>
+
+                                <option
+                                    value="Shipped"
+                                    ${order.status === "Shipped" ? "selected" : ""}
+                                >
+                                    Shipped
+                                </option>
+
+                                <option
+                                    value="Delivered"
+                                    ${order.status === "Delivered" ? "selected" : ""}
+                                >
+                                    Delivered
+                                </option>
+
+                                <option
+                                    value="Cancelled"
+                                    ${order.status === "Cancelled" ? "selected" : ""}
+                                >
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </article>
+                `;
+
+            }).join("");
+
+
+    attachOrderEvents();
+}
+
+
+/* =========================================================
+   ORDER STATUS
+   ========================================================= */
+
+function attachOrderEvents() {
+
+    document
+        .querySelectorAll(".order-status-select")
+        .forEach(select => {
+
+            select.addEventListener(
+                "change",
+                () => {
+
+                    const orderId =
+                        select.dataset.order;
+
+                    const newStatus =
+                        select.value;
+
+
+                    const orders =
+                        loadOrders();
+
+
+                    const order =
+                        orders.find(
+                            item =>
+                                String(item.id) ===
+                                String(orderId)
+                        );
+
+
+                    if (!order) {
+                        return;
+                    }
+
+
+                    order.status =
+                        newStatus;
+
+
+                    saveOrders(orders);
+
+                    renderOrders();
+
+                    showMessage(
+                        "Order status updated."
+                    );
+
+                }
+            );
+
+        });
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+function initAdmin() {
+
+    loadProducts();
+
+    renderProducts();
+
+    renderOrders();
+}
+
+
+initAdmin();
+
+</script>
+
+</body>
+</html>
